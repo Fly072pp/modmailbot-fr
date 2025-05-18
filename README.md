@@ -39,4 +39,4 @@ Rejoignez le serveur Discord officiel de support :
 
 👉 **[Rejoindre le serveur de support](https://discord.gg/vRuhG9R)**
 
-### Créé de base par
+### Créé de base par Dragory
