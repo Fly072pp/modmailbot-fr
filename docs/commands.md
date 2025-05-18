@@ -1,174 +1,163 @@
-# 🤖 Commands
+# 🤖 Commandes du Bot Modmail
 
-## Table of contents
-* [Inside a Modmail thread](#inside-a-modmail-thread)
-* [Anywhere on the inbox server](#anywhere-on-the-inbox-server)
-* [Snippets (canned messages)](#snippets-canned-messages)
+## 📑 Table des matières
+- [📨 Dans un fil Modmail](#dans-un-fil-modmail)
+- [🌐 Partout sur le serveur de réception](#partout-sur-le-serveur-de-réception)
+- [📋 Modèles de réponses (Snippets)](#modèles-de-réponses-snippets)
 
-## Inside a Modmail thread
-These commands can only be used inside a Modmail thread's channel on the inbox server.
+---
 
-### `!reply <text>` / `!r <text>`
-Send a reply to the user.
+## 📨 Dans un fil Modmail
 
-**Example:** `!r How can I help you?`
+Ces commandes ne peuvent être utilisées que dans un canal de fil Modmail sur le serveur de réception.
 
-To reply automatically without using `!reply`, [turn on `alwaysReply` in bot settings](configuration.md).
+### `!reply <texte>` / `!r <texte>`
+Répond à l'utilisateur.  
+**Exemple :** `!r Comment puis-je vous aider ?`  
+Pour répondre automatiquement sans utiliser `!reply`, [activez `alwaysReply` dans les paramètres du bot](configuration.md).
 
-### `!anonreply <text>` / `!ar <text>`
-Send an anonymous reply to the user. Anonymous replies only show the moderator's role in the reply.
+### `!anonreply <texte>` / `!ar <texte>`
+Envoie une réponse **anonyme** (seul le rôle du modérateur est visible).  
+**Exemple :** `!ar Merci d'utiliser Modmail uniquement pour des messages sérieux`
 
-**Example:** `!ar Please only use Modmail for serious messages`
-
-To reply automatically without using `!reply`, [turn on `alwaysReply` in bot settings](configuration.md).
-
-### `!realreply <text>` / `!rr <text>`
-Send a reply to the user. This will always include the moderator's name, even if the `forceAnon` option is enabled.
+### `!realreply <texte>` / `!rr <texte>`
+Répond à l'utilisateur en **affichant toujours le nom du modérateur**, même si `forceAnon` est activé.
 
 ### `!close`
-Close the Modmail thread.
+Ferme le fil de discussion.
 
-### `!close <time>`
-Close the Modmail thread after a timer. Sending a message to the user or receiving a message from the user will cancel scheduled closing.
+### `!close <durée>`
+Ferme le fil après un délai défini.  
+**Exemple :** `!close 15m` (ferme dans 15 minutes)  
+L’envoi ou la réception d’un message annule cette fermeture programmée.
 
-**Example:** `!close 15m`
-
-### `!close -s` / `!close -s <time>`
-Close the Modmail thread without notifying the user that it was closed.
+### `!close -s` / `!close -s <durée>`
+Ferme le fil **silencieusement** (l'utilisateur n'est pas informé).
 
 ### `!close cancel`
-Cancel a timed close.
+Annule une fermeture programmée.
 
 ### `!logs`
-List previous Modmail logs with the user.
+Affiche les anciens logs avec cet utilisateur.
 
 ### `!block`
-Block the user from using Modmail.
+Bloque l'utilisateur de Modmail.
 
-### `!block <time>`
-Block the user from using Modmail for a specified time.
-
-**Example:** `!block 7d`
+### `!block <durée>`
+Bloque l’utilisateur pour une durée définie.  
+**Exemple :** `!block 7d` (7 jours)
 
 ### `!unblock`
-Unblock the user, allowing them to use Modmail again.
+Débloque l’utilisateur.
 
-### `!move <category>`
-Move the Modmail thread to a different category.
-Requires `allowMove` to be enabled in the bot's settings.
+### `!move <catégorie>`
+Déplace le fil vers une autre catégorie.  
+Nécessite l’activation de `allowMove` dans les paramètres.
 
 ### `!suspend`
-Suspend the thread.
-The thread will act as closed and will not receive any messages until unsuspended via `!unsuspend`.
+Suspend temporairement le fil. Aucun message ne sera reçu jusqu’à reprise avec `!unsuspend`.
 
 ### `!unsuspend`
-Unsuspend the thread. See `!suspend` above.
+Réactive un fil suspendu.
 
 ### `!alert`
-Pings you when the thread gets a new reply.
+Vous notifie quand une nouvelle réponse arrive dans le fil.
 
 ### `!alert cancel`
-Cancel the ping set by `!alert`.
+Annule l’alerte.
 
-### `!edit <number> <new text>`
-Edit your own previous reply sent with `!reply`.  
-`<number>` is the message number shown in front of staff replies in the thread channel.
+### `!edit <numéro> <nouveau texte>`
+Modifie une ancienne réponse.  
+`<numéro>` = numéro du message à modifier (visible dans le fil).
 
-### `!delete <number>`
-Delete your own previous reply sent with `!reply`.  
-`<number>` is the message number shown in front of staff replies in the thread channel.
+### `!delete <numéro>`
+Supprime une réponse précédente.
 
 ### `!role`
-View your display role for the thread - the role that is shown in front of your name in your replies
+Affiche votre rôle d'affichage pour ce fil.
 
 ### `!role reset`
-Reset your display role for the thread to the default
+Réinitialise votre rôle d'affichage.
 
-### `!role <role name>`
-Change your display role for the thread to any role you currently have
+### `!role <nom du rôle>`
+Définit votre rôle d'affichage à un rôle que vous possédez.
 
 ### `!loglink`
-Get a link to the open Modmail thread's log.
+Fournit un lien vers les logs du fil actuel.
 
 ### `!loglink -s`
-Get a link to the open Modmail thread's log, only showing messages to/from the user (ignores mod chatter within the thread).
+Lien des logs **sans les discussions entre modérateurs**.
 
 ### `!loglink -v`
-Get a link to the open Modmail thread's log, showing extra details about channel and message IDs between the bot and the user.
-This is mainly useful when reporting messages to Discord's Trust & Safety team.
+Lien des logs **détaillés** (ID des messages, utile pour signaler à Discord).
 
 ### `!id`
-Prints the user's ID.
+Affiche l'identifiant de l'utilisateur.
 
-### `!note <text>`
-Add a note for the user
+### `!note <texte>`
+Ajoute une note pour l'utilisateur.
 
 ### `!notes <userID>`
-Show all notes for the user
+Affiche toutes les notes liées à cet utilisateur.
 
 ### `!delete_note <noteID>`
-Delete the specified note. The note ID is shown when running `!notes`.
+Supprime une note spécifique.
 
 ### `!dm_channel_id`
-Prints the ID of the current DM channel with the user
+Affiche l’ID du canal de messages privés avec l’utilisateur.
 
-### `!message <number>`
-Shows the DM channel ID, DM message ID, and message link of the specified user reply.
-`<number>` is the message number shown in front of staff replies in the thread channel.
+### `!message <numéro>`
+Affiche l'ID du canal MP, l’ID du message et un lien vers ce message.
 
-## Anywhere on the inbox server
-These commands can be used anywhere on the inbox server, even outside Modmail threads.
+---
+
+## 🌐 Partout sur le serveur de réception
+
+Ces commandes fonctionnent **en dehors** des fils Modmail, n'importe où sur le serveur.
 
 ### `!newthread <userID>`
-Open a Modmail thread with a user.
-
-**Example:** `!newthread 106391128718245888`
+Ouvre un nouveau fil avec un utilisateur.  
+**Exemple :** `!newthread 106391128718245888`
 
 ### `!logs <userID>`
-List previous Modmail logs with the specified user.
-
-**Example:** `!logs 106391128718245888`
+Affiche les anciens logs de cet utilisateur.
 
 ### `!block <userID>`
-Block the specified user from Modmail.
+Bloque cet utilisateur.
 
-**Example:** `!block 106391128718245888`
-
-### `!block <userID> <time>`
-Block the specified user from Modmail for a specified time.
-
-**Example:** `!block 106391128718245888 7d`
+### `!block <userID> <durée>`
+Bloque cet utilisateur pour une durée définie.  
+**Exemple :** `!block 106391128718245888 7d`
 
 ### `!unblock <userID>`
-Unblock the specified user, allowing them to use Modmail again.
-
-**Example:** `!unblock 106391128718245888`
+Débloque cet utilisateur.
 
 ### `!is_blocked <userID>`
-Check if the specified user is blocked.
-
-**Example:** `!is_blocked 106391128718245888`
+Vérifie si un utilisateur est bloqué.
 
 ### `!role`
-(Outside a modmail thread) View your default display role - the role that is shown in front of your name in your replies
+Affiche votre rôle d'affichage par défaut.
 
 ### `!role reset`
-(Outside a modmail thread) Reset your default display role
+Réinitialise votre rôle d'affichage par défaut.
 
-### `!role <role name>`
-(Outside a modmail thread) Change your default display role to any role you currently have
+### `!role <nom du rôle>`
+Définit un nouveau rôle d'affichage par défaut.
 
-### `!note <userID> <text>`
-Add a note for the specified user
+### `!note <userID> <texte>`
+Ajoute une note à un utilisateur.
 
 ### `!notes <userID>`
-Show all notes for the specified user
+Affiche les notes d’un utilisateur.
 
 ### `!delete_note <noteID>`
-Delete the specified note. The note ID is shown when running `!notes`.
+Supprime une note via son identifiant.
 
 ### `!version`
-Show the Modmail bot's version.
+Affiche la version du bot Modmail.
 
-## Snippets (canned messages)
-See the [📋 Snippets](snippets.md) page for more information!
+---
+
+## 📋 Modèles de réponses (Snippets)
+
+Voir la page [📋 Snippets](snippets.md) pour plus d’informations.
