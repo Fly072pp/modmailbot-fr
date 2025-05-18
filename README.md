@@ -1,27 +1,42 @@
-# Modmail for Discord
-Modmail Bot is a bot for [Discord](https://discord.com/) that allows users to DM the bot to contact the server's moderators/staff
-without messaging them individually or pinging them publically on the server.
-These DMs get relayed to modmail *threads*, channels where staff members can reply to and talk with the user.
-To the user, the entire process happens in DMs with the bot.
+# Modmail pour Discord
 
-Inspired by Reddit's modmail system.
+Modmail Bot est un bot pour [Discord](https://discord.com/) qui permet aux utilisateurs d’envoyer un message privé (DM) au bot afin de contacter les modérateurs ou membres du staff du serveur,  
+sans avoir à leur écrire individuellement ni à les mentionner publiquement sur le serveur.  
+Ces messages sont transférés dans des *threads* modmail, c’est-à-dire des salons où les membres du staff peuvent répondre et discuter avec l’utilisateur.  
+Pour l’utilisateur, toute la conversation se déroule dans les DM avec le bot.
 
-**⚠ Note on updating to v3.0.0:** If you're currently using a *very* old version of the bot, from before February 2018, you'll first need to update to v2.30.1 and run the bot once before updating to v3.0.0.
+> Inspiré du système de modmail de Reddit.
 
-Always take a backup of your `db/data.sqlite` file before updating the bot.
+---
 
-## Getting started
-* **[🛠️ Setting up the bot](docs/setup.md)**
-* **[✨ Updating the bot](docs/updating.md)**
-* **[🙋 Frequently Asked Questions](docs/faq.md)**
-* [📝 Configuration](docs/configuration.md)
-* [🤖 Commands](docs/commands.md)
-* [📋 Snippets](docs/snippets.md)
-* [🧩 Plugins](docs/plugins.md)
-* [📌 Release notes](CHANGELOG.md)
-* [📚 **Community Guides & Resources**](https://github.com/Dragory/modmailbot-community-resources)
+## ⚠ Remarque importante concernant la mise à jour vers la version 3.0.0
 
-## Support server
-If you need help with setting up the bot or would like to discuss other things related to it, join the support server on Discord here:
+Si vous utilisez une version *très* ancienne du bot (d’avant février 2018), vous devez d’abord effectuer une mise à jour vers la version **v2.30.1** et lancer le bot une fois, **avant** de passer à la version **v3.0.0**.
 
-👉 **[Join support server](https://discord.gg/vRuhG9R)**
+> 💾 **Pensez toujours à faire une sauvegarde de votre fichier `db/data.sqlite` avant toute mise à jour.**
+
+---
+
+## 🚀 Pour bien démarrer
+
+- [🛠️ Configuration du bot](docs/setup.md)
+- [✨ Mise à jour du bot](docs/updating.md)
+- [🙋 FAQ – Foire Aux Questions](docs/faq.md)
+- [📝 Fichier de configuration](docs/configuration.md)
+- [🤖 Liste des commandes](docs/commands.md)
+- [📋 Extraits de code utiles](docs/snippets.md)
+- [🧩 Système de plugins](docs/plugins.md)
+- [📌 Notes de version (changelog)](CHANGELOG.md)
+- [📚 **Guides et ressources communautaires**](https://github.com/Dragory/modmailbot-community-resources)
+
+---
+
+## 🆘 Serveur de support
+
+Besoin d’aide pour configurer ou utiliser le bot ?  
+Envie d’échanger avec d’autres utilisateurs ?  
+Rejoignez le serveur Discord officiel de support :
+
+👉 **[Rejoindre le serveur de support](https://discord.gg/vRuhG9R)**
+
+### Créé de base par
